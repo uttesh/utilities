@@ -24,9 +24,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class NexusSampleService {
 
 	private static Logger logger = Logger.getLogger(NexusSampleService.class.getSimpleName());
-	private static String username = "builduser";
-	private static String password = "dewelcome720";
-	private static String url = "http://repo.dev.decisionengines.ai/repository/de-docker/v2/de-ai-service/manifests/latest";
+	private static String username = "";
+	private static String password = "";
+	private static String url = "";
 	// private static String encodedAuth = "YnVpbGR1c2VyOmRld2VsY29tZTcyMA==";
 
 	public static void main(String[] args) {

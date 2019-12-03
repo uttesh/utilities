@@ -76,12 +76,12 @@ public class BitbucketService {
 	}
 
 	public List<String> getAllTags() throws NoSuchFieldException, SecurityException {
-		return getNames("de-bom", "tags");
+		return getNames("", "tags");
 
 	}
 
 	public List<String> getAllBranches() throws NoSuchFieldException, SecurityException {
-		return getNames("de-bom", "branches");
+		return getNames("", "branches");
 	}
 
 	private List<String> getNames(String repoName, String type) {
@@ -118,7 +118,7 @@ public class BitbucketService {
 	}
 
 	public Map<String, Object> getServiceFileList(String path) {
-		String data = getfileData("de-bom", path).getBody();
+		String data = getfileData("", path).getBody();
 		try {
 			return mapper.readValue(data, new TypeReference<Map<String, Object>>() {
 			});
@@ -170,7 +170,7 @@ public class BitbucketService {
 	
 	public void getLatestBuild() {
 		RestTemplate restTemplate = new RestTemplate();
-		String repoUrl = Constants.Bitbucket.API_REPO_URL +"de-ai-service/commits";
+		String repoUrl = Constants.Bitbucket.API_REPO_URL +"/commits";
 		System.out.println("repoUrl :: " + repoUrl);
 		System.out.println("bitbucketSession.getAccessToken() :: " + bitbucketSession.getAccessToken());
 		HttpHeaders headers = new HttpHeaders();
