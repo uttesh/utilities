@@ -1,0 +1,53 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'utility.nashron.NashronSample'
+
+repositories {
+    mavenCentral()
+    jcenter()  
+}
+
+jar {
+    baseName = 'utility-hello-world'
+    version =  '1.0.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile "joda-time:joda-time:2.2"
+    compile group: 'com.cdancy', name: 'bitbucket-rest', version: '2.5.3'
+    compile group: 'com.atlassian.bitbucket.server', name: 'bitbucket-api', version: '6.7.1'
+    compile group: 'org.vx68k.bitbucket', name: 'bitbucket-api-client', version: '5.0-alpha.7'
+
+     compile group: 'javax.json', name: 'javax.json-api', version: '1.0'
+     compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0.1'
+     compile group: 'javax.activation', name: 'javax.activation-api', version: '1.2.0'
+     compile group: 'org.glassfish', name: 'javax.json', version: '1.0.4'
+     compile group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '2.25.1'
+     compile group: 'org.springframework', name: 'spring-web', version: '5.2.0.RELEASE'
+    
+     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.10.0'
+     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.0'
+     compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.10.0'
+     
+     
+     compile group: 'org.springdoc', name: 'springdoc-openapi-core', version: '1.1.49'
+     compile group: 'org.springdoc', name: 'springdoc-openapi-common', version: '1.1.49'
+     compile group: 'com.jayway.jsonpath', name: 'json-path', version: '2.4.0'
+     compile group: 'org.springframework.cloud', name: 'spring-cloud-aws-core', version: '2.1.3.RELEASE'
+    
+     testCompile "junit:junit:4.12"
+}
+
+task copyDeps(type: Copy) {
+ from configurations.runtime
+ into 'build/lib'
+}
+
+//jar.dependsOn copyDeps
+
+
